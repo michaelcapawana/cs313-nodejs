@@ -83,3 +83,32 @@ function calcRate(req, res) {
             }
         } else {
             price = "Sorry, no weights over 13 oz.";
+	}
+
+    } else if(type == "First-Class-Package-Service-Retail"){
+        if(weight <= 13) {
+            newWeight = Math.ceil(weight);
+            if (newWeight == 1 || newWeight == 2 || newWeight == 3 || newWeight == 4) {
+                price = 3.50;
+            } else if (newWeight == 5 || newWeight == 6 || newWeight == 7 || newWeight == 8) {
+                price = 3.75;
+            } else if (newWeight == 9){
+                price = 4.10;
+            } else if (newWeight == 10){
+                price = 4.45;
+            } else if (newWeight == 11){
+                price = 4.80;
+            } else if (newWeight == 12){
+                price = 5.15;
+            } else if (newWeight == 13){
+                price = 5.50;
+            }
+        } else {
+            price = "Sorry, no weights over 13 oz.";
+	}
+    } else {
+        console.log("Error");
+    }
+    res.render("results", {mType:type, weight:weight, price:price});
+
+}
