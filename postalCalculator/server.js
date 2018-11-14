@@ -1,0 +1,51 @@
+var express = require("express");
+
+var app = express();
+var url = require('url');
+
+app.set("views", __dirname + "/views");
+app.set("view engine", "ejs");
+
+app.use(express.static('public'));
+
+app.get("/", function(req, res) {
+        console.log("A request came in for /");
+        var name = "John";
+        res.write("<h1>Welcome to the page, " + name + "</h1>");
+        res.end();
+    });
+
+app.get("/math", function(req, res){
+        handleMath(req, res);
+    });
+
+
+function handleMath(req, res) {
+    var reqURL = url.parse(req.url, true);
+    var op = reqURL.query.operation;
+    var firstOp = Number(req.query.operand1);
+    var secondOp= Number(req.query.operand2);
+    console.log("A request came in for /math");
+
+    op = op.toLowerCase();
+
+    var num = 0;
+
+    if(op == "add") {
+        num = firstOp + secondOp;
+    } else if(op == "subtract") {
+        num = firstOp - secondOp;
+    } else if(op == "multiply"){
+        num = firstOp * secondOp;
+    } else if(op == "divide"){
+        num = firstOp / secondOp;
+    } else {
+        console.log("Error");
+    }
+    res.render("results", {num:num});
+
+}
+
+app.listen(5000, function() {
+        console.log("Listening on port 5000");
+    });
