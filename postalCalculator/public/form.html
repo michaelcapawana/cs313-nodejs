@@ -1,20 +1,19 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Math Submission Form</title>
+  <title>Postal Calculator</title>
 </head>
 <body>
-  <h1>Math Submission Form</h1>
+  <h1>Postal Calculator</h1>
   <form action="/math" method="get">
-    <select name="operation">
-      <option>Add</option>
-      <option>Subtract</option>
-      <option>Multiply</option>
-      <option>Divide</option>
+    <select name="type">
+      <option>Letters(Stamped)</option>
+      <option>Letters(Metered)</option>
+      <option>Large-Envelopes(Flats)</option>
+      <option>First-Class-Package-Service-Retail</option>
       </select>
 
-    <input type="text" name="operand1">
-    <input type="text" name="operand2">
+    <input type="text" placeholder="Weight" name="weight">
 
     <br><br>
     <input type="submit" value="Get Result">
