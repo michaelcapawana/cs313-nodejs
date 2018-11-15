@@ -1,1 +1,1 @@
-web: node ./postalCalculator/server.js
+web: node server.js
