@@ -10,6 +10,8 @@ app.set("view engine", "ejs");
 
 app.use(express.static('public'));
 
+app.get('/helloWorld', (req, res) => res.sendFile(path.join(__dirname, '/public/helloWorld.html')))
+
 app.get("/math", function(req, res){
         calcRate(req, res);
     });
