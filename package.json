@@ -7,7 +7,7 @@
   },
   "main": "/postalCalculator/server.js",
   "scripts": {
-    "start": "node server.js",
+    "start": "node /postalCalculator/server.js",
     "test": "node test.js"
   },
   "dependencies": {
