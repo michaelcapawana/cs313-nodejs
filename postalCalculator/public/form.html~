@@ -5,9 +5,6 @@
 </head>
 <body>
   <h1>Postal Calculator</h1>
-  <div>
-    <h3>Mail Type</h3><h3>Weight</h3>
-  </div style= "display: inline-block;">
   <form action="/math" method="get">
     <select name="type">
       <option>Letters(Stamped)</option>
@@ -16,7 +13,7 @@
       <option>First-Class-Package-Service-Retail</option>
       </select>
 
-    <input type="text" name="weight">
+    <input type="text" placeholder="Weight" name="weight">
 
     <br><br>
     <input type="submit" value="Get Result">

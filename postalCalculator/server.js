@@ -20,7 +20,7 @@ function calcRate(req, res) {
     var newWeight = 0;
     var price = 0;
 
-    if(type == "Letters(Stamped)") {
+    if(type == "Letters (Stamped)") {
         if(weight <= 3.5) {
 	    newWeight = Math.ceil(weight);
 	    if (newWeight == 1) {

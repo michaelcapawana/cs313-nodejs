@@ -82,7 +82,7 @@ function calcRate(req, res) {
     } else {
         console.log("Error");
     }
-    res.render("results", {mtype:type, weight:weight, price:price});
+    res.render("results", {mType:type, weight:weight, price:price});
 
 }
 
