@@ -2,7 +2,7 @@ var express = require("express");
 
 var app = express();
 var url = require('url');
-
+const path = require('path')
 const PORT = process.env.PORT || 5000;
 
 app.set("views", __dirname + "/views");

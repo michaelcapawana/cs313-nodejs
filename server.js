@@ -39,7 +39,7 @@ function calcRate(req, res) {
 	} else {
             price = "Sorry, no weights over 3.5 oz.";
 	}
-    } else if(type == "Letters(Metered)") {
+    } else if(type == "Letters (Metered)") {
 	if(weight <= 3.5) {
             newWeight = Math.ceil(weight);
             if (newWeight == 1){
@@ -54,7 +54,7 @@ function calcRate(req, res) {
         } else {
             price = "Sorry, no weights over 3.5 oz.";
         }
-    } else if(type == "Large-Envelopes(Flats)"){
+    } else if(type == "Large Envelopes (Flats)"){
 	if(weight <= 13) {
 	    newWeight = Math.ceil(weight);
 	    price = (1.00 + (0.21 * (newWeight-1)));
@@ -62,7 +62,7 @@ function calcRate(req, res) {
 	    price = "Sorry, no weights over 13 oz.";
 	}
 	
-    } else if(type == "First-Class-Package-Service-Retail"){
+    } else if(type == "First-Class Package Service--Retail"){
 	if(weight <= 13) {
             newWeight = Math.ceil(weight);
             if (newWeight == 1 || newWeight == 2 || newWeight == 3 || newWeight == 4) {
