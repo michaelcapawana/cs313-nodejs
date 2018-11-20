@@ -1,4 +1,6 @@
-var express = require('express');
+
+//Teach 10 Activity
+/*var express = require('express');
 var app = express();
 
 const { Pool } = require("pg");
@@ -43,14 +45,13 @@ function getPersonFromDb(id, callback) {
             callback(null, result.rows);
         });
 }
+*/
 
 
 
-
-
-//var express = require("express");
-
-//var app = express();
+//Prove 08 and Prove 09
+var express = require("express");
+var app = express();
 var url = require('url');
 const path = require('path')
 const PORT = process.env.PORT || 5000;
