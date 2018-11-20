@@ -1,7 +1,7 @@
 var express = require('express');
 var app = express();
 
-//const { Pool } = require("pg");
+const { Pool } = require("pg");
 const connectionString = process.env.DATABASE_URL;
 const pool = new Pool({connectionString: connectionString});
 
@@ -45,9 +45,12 @@ function getPersonFromDb(id, callback) {
 }
 
 
-//var express = require("express");
 
-//var app = express();
+
+/*
+var express = require("express");
+
+var app = express();
 var url = require('url');
 const path = require('path')
 const PORT = process.env.PORT || 5000;
@@ -140,3 +143,4 @@ function calcRate(req, res) {
 app.listen(PORT, function() {
       console.log("Listening on port 5000");
   });
+*/
