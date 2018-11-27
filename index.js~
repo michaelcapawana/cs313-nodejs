@@ -49,10 +49,10 @@ function getBusinessFromDb(id, callback) {
     function getReviews(request, response) {                                                                                                     
 	var id = request.query.id;
 	getReviewsFromDb(id, function(error, result) {                                                                                                                       
-		if (error || result == null || result.length != 1) {
+		if (error || result == null) {
 		    response.status(500).json({success: false, data: error});
 		} else {
-		    var reviews = result[0];                                                                                             
+		    var reviews = result[];                                                                                             
 		    response.status(200).json(result[0]);
 		}
 	    });
