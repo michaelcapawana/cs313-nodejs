@@ -1,6 +1,6 @@
 var express = require('express');                                                                                                                                                  
 var app = express();                                                                                                                                                                                                                                                                                                              
-var pool = new pg.Pool()
+var pg = new pg.Pool()
 
 const { Pool } = require("pg");                                                                                                       
 const connectionString = process.env.DATABASE_URL;                                                                                                                                  
