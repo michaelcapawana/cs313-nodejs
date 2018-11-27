@@ -16,7 +16,7 @@ app.get('/getReviews', function(request, response) {
 
 
 app.get('/reviews', function(req, res, next) {
-	pool.connect(conString, function(err, client, done) {
+	pool.connect(connectionString, function(err, client, done) {
 		if (err) {
 		    return console.error('error fetching client from pool', err);
 		}

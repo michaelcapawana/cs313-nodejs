@@ -1,6 +1,7 @@
 var express = require('express');                                                                                                                                                  
 var app = express();                                                                                                                                                                                                                                                                                                              
 const { Pool } = require("pg");                                                                                                       
+var pg = require('pg');
 const connectionString = process.env.DATABASE_URL;                                                                                                                                  
 const pool = new Pool({connectionString: connectionString});                                                                                                                        
                                                                                                                                                                                   
@@ -16,7 +17,7 @@ app.get('/getReviews', function(request, response) {
 
 
 app.get('/reviews', function(req, res, next) {
-	pool.connect(connectionString, function(err, client, done) {
+	pg.connect(connectionString, function(err, client, done) {
 		if (err) {
 		    return console.error('error fetching client from pool', err);
 		}
