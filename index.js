@@ -16,7 +16,7 @@ app.get('/getReviews', function(request, response) {
 
 
 app.get('/reviews', function(req, res, next) {
-	pg.connect(conString, function(err, client, done) {
+	pool.connect(conString, function(err, client, done) {
 		if (err) {
 		    return console.error('error fetching client from pool', err);
 		}
