@@ -1,7 +1,5 @@
 var express = require('express');                                                                                                                                                  
 var app = express();                                                                                                                                                                                                                                                                                                              
-var pg = new pg.Pool()
-
 const { Pool } = require("pg");                                                                                                       
 const connectionString = process.env.DATABASE_URL;                                                                                                                                  
 const pool = new Pool({connectionString: connectionString});                                                                                                                        
@@ -16,7 +14,7 @@ app.get('/getReviews', function(request, response) {
 	getReviews(request, response);
     });
 
-
+/*
 app.get('/reviews', function(req, res, next) {
 	pg.connect(connectionString, function(err, client, done) {
 		if (err) {
@@ -32,7 +30,7 @@ app.get('/reviews', function(req, res, next) {
 		    });
 	    });
     });
-
+*/
 
 
 
@@ -82,7 +80,7 @@ function getBusinessFromDb(id, callback) {
 
     function getReviewsFromDb(id, callback) {
 	console.log("Getting reviews from DB with id: " + id);
-	var sql = "SELECT id, rating, description, reviewer, business_id FROM reviews WHERE business_id = $1::int";
+	var sql = "SELECT * FROM reviews";
 	var params = [id];
 
 	pool.query(sql, params, function(err, result) {
