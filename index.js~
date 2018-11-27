@@ -58,7 +58,7 @@ function getBusinessFromDb(id, callback) {
             callback(null, result.rows);                                                                                                                                            
         });       
 
-
+}
 
 
     function getReviews(request, response) {                                                                                                     
@@ -86,6 +86,5 @@ function getBusinessFromDb(id, callback) {
 		}
 		console.log("Found result: " + JSON.stringify(result.rows));
 		callback(null, result.rows);
-	    });
-                                                                                                                                                                  
-}                                       
+	    });                                                                                                                                                
+    }                                   
