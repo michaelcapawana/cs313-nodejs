@@ -52,7 +52,7 @@ function getBusinessFromDb(id, callback) {
 		if (error || result == null) {
 		    response.status(500).json({success: false, data: error});
 		} else {
-		    var reviews = result[];                                                                                             
+		    var reviews = result[0];                                                                                             
 		    response.status(200).json(result[0]);
 		}
 	    });
