@@ -15,13 +15,13 @@ app.get('/getReviews', function(request, response) {
     });
 
 
-app.get('/users/:id', function(req, res, next) {
+app.get('/reviews', function(req, res, next) {
 	pg.connect(conString, function(err, client, done) {
 		if (err) {
 		    return console.error('error fetching client from pool', err);
 		}
 		console.log("connected to database");
-		client.query('SELECT * FROM reviews WHERE business_id = $1', [req.params.id], function(err, result) {
+		client.query('SELECT * FROM reviews', function(err, result) {
 			done();
 			if (err) {
 			    return console.error('error running query', err);
@@ -30,7 +30,6 @@ app.get('/users/:id', function(req, res, next) {
 		    });
 	    });
     });
-
 
 
 
