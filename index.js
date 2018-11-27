@@ -1,4 +1,40 @@
-var express = require('express');                                                                                                                                                  
+const express = require("express");
+const port = process.env.PORT || 5000;
+const path =require("path");
+
+
+express()
+    .use(express.static(path.join(__dirname, "public")))
+    .get("/soft_drink_list", function(req, res) {
+      console.log("getting soft drink list...");
+      res.json({success:true});
+
+      .get("/soft_drink", handleGetSoftDrink)
+
+
+    .listen(port, function() {                                                 
+      console.log('Server listening on port' + port);                                                                                                      
+	}); 
+
+      function handleGetSoftDrink(req, res) {
+	  console.log("getting details for a soft drink");
+	  res.json({success:true});
+      }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*var express = require('express');                                                                                                                                                  
 var app = express();                                                                                                                                                                                                                                                                                                              
 const { Pool } = require("pg");                                                                                                       
 const connectionString = process.env.DATABASE_URL;                                                                                                                                  
@@ -14,7 +50,7 @@ app.get('/getReviews', function(request, response) {
 	getReviews(request, response);
     });
 
-/*
+
 app.get('/reviews', function(req, res, next) {
 	pg.connect(connectionString, function(err, client, done) {
 		if (err) {
@@ -30,7 +66,7 @@ app.get('/reviews', function(req, res, next) {
 		    });
 	    });
     });
-*/
+
 
 
 
@@ -92,4 +128,4 @@ function getBusinessFromDb(id, callback) {
 		console.log("Found result: " + JSON.stringify(result.rows));
 		callback(null, result.rows);
 	    });                                                                                                                                                
-    }                                   
+	    }                               */

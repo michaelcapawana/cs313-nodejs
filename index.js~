@@ -1,4 +1,22 @@
-var express = require('express');                                                                                                                                                  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*var express = require('express');                                                                                                                                                  
 var app = express();                                                                                                                                                                                                                                                                                                              
 const { Pool } = require("pg");                                                                                                       
 const connectionString = process.env.DATABASE_URL;                                                                                                                                  
@@ -14,7 +32,7 @@ app.get('/getReviews', function(request, response) {
 	getReviews(request, response);
     });
 
-/*
+
 app.get('/reviews', function(req, res, next) {
 	pg.connect(connectionString, function(err, client, done) {
 		if (err) {
@@ -30,7 +48,7 @@ app.get('/reviews', function(req, res, next) {
 		    });
 	    });
     });
-*/
+
 
 
 
@@ -80,7 +98,7 @@ function getBusinessFromDb(id, callback) {
 
     function getReviewsFromDb(id, callback) {
 	console.log("Getting reviews from DB with id: " + id);
-	var sql = "SELECT * FROM reviews;
+	var sql = "SELECT * FROM reviews";
 	var params = [id];
 
 	pool.query(sql, params, function(err, result) {
@@ -92,4 +110,4 @@ function getBusinessFromDb(id, callback) {
 		console.log("Found result: " + JSON.stringify(result.rows));
 		callback(null, result.rows);
 	    });                                                                                                                                                
-    }                                   
+	    }                               */
