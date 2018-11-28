@@ -47,6 +47,32 @@ app.get('/getReviews', function(request, response) {
 	getReviews(request, response);
     });
 
+app.post('/postReview', function(request, response) {
+	postReview(request, response);
+    });
+
+
+
+
+/*
+router.post('/users', function(req, res, next) {
+	pool.connect(connectionString, function(err, client, done) {
+		if (err) {
+		    return console.error('error fetching client from pool', err);
+		}
+		console.log("connected to database");
+		client.query('INSERT INTO users(username, password) VALUES($1, $2) returning id', [req.body.username, req.body.password], function(err, result) {
+			done();
+			if(err) {
+			    return console.error('error running query', err);
+			}
+			res.send(result);
+		    });
+	    });
+    });
+*/
+
+
 /*
 app.get('/reviews', function(req, res, next) {
 	pg.connect(connectionString, function(err, client, done) {
@@ -127,3 +153,37 @@ function getBusinessFromDb(id, callback) {
 		callback(null, result.rows);
 	    });                                                                                                                                                
     }
+
+
+
+
+
+
+
+function postReview(request, response) {
+    var id = request.query.id;
+    postReviewsFromDb(id, function(error, result) {
+	    if (error || result == null) {
+		response.status(500).json({success: false, data: error});
+	    } else {
+		var reviews = result[0];
+		response.status(200).json(result[0]);
+	    }
+	});
+}
+
+function postReviewsFromDb(id, callback) {
+    console.log("Posting review to DB with id: " + id);
+    var sql = "INSERT INTO reviews(rating, description, reviewer, business_id) VALUES(5, 'So Good!', 'Michael Capawana', 6) returning id";
+    var params = [id];
+
+    pool.query(sql, params, function(err, result) {
+	    if (err) {
+		console.log("Error in query: ")
+		    console.log(err);
+		callback(err, null);
+	    }
+	    console.log("Found result: " + JSON.stringify(result.rows));
+	    callback(null, result.rows);
+	});
+}

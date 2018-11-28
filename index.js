@@ -162,7 +162,7 @@ function getBusinessFromDb(id, callback) {
 
 function postReview(request, response) {
     var id = request.query.id;
-    postReviewsFromDb(id, function(error, result) {
+    postReviewFromDb(id, function(error, result) {
 	    if (error || result == null) {
 		response.status(500).json({success: false, data: error});
 	    } else {
@@ -172,7 +172,7 @@ function postReview(request, response) {
 	});
 }
 
-function postReviewsFromDb(id, callback) {
+function postReviewFromDb(id, callback) {
     console.log("Posting review to DB with id: " + id);
     var sql = "INSERT INTO reviews(rating, description, reviewer, business_id) VALUES(5, 'So Good!', 'Michael Capawana', 6) returning id";
     var params = [id];
