@@ -1,23 +1,35 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Postal Calculator</title>
-</head>
+<header><title>Rate IBC Groups</title></header>
+
 <body>
-  <h1>Postal Calculator</h1>
-  <form action="/math" method="get">
-    <select name="type">
-      <option>Letters (Stamped)</option>
-      <option>Letters (Metered)</option>
-      <option>Large Envelopes (Flats)</option>
-      <option>First-Class Package Service--Retail</option>
-      </select>
+<div class="banner">
+    <h1>Rate IBC Groups</h1>
+</div>
 
-    <input type="text" placeholder="Weight" name="weight">
 
-    <br><br>
-    <input type="submit" value="Get Result">
 
-    </form>
+
+
+<div class="body">
+<div class="leftSide">
+<h2>Groups:</h2>
+<p>
+ <!-- Insert Select Statement Results Here -->
+</p>
+</div>
+
+
+
+
+
+
+<div class="rightSide">
+<h2></h2>
+<p>
+<!-- Insert Business Detail Results Here -->
+</p>
+</div>
+</div>
 </body>
 </html>

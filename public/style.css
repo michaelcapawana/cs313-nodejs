@@ -1,0 +1,94 @@
+html, body, section {
+  height: 100%;
+  background-color:black;
+}
+
+body {
+  font-family: sans-serif;
+
+}
+
+.body {
+    display: flex;
+    height: 100%;
+}
+
+.standard {
+    background-color: darkcyan;
+    text-align: center;
+    height: 100%;
+    flex: 1;
+}
+
+.rightSide {
+    background-color: white;
+    flex: 2;
+    padding: 4rem;
+    overflow-y: auto;
+    text-align: center;
+}
+
+.leftSide {
+    background-color: darkcyan;
+    flex: 1;
+    padding: 5rem;
+    text-align: center;
+}
+
+.banner {
+    background-color: #323234;
+}
+
+a {
+    color: darkcyan;
+    font-size: 20px;
+    padding-top: 10px;
+    text-decoration: none;
+}
+
+.rightLink {
+    padding-right: 20px;
+    padding-top: 10px;
+    float: right;
+    color: white;
+}
+
+.leftLink {
+    padding-right: 20px;
+    padding-top: 10px;
+    float: right;
+    color: white;
+}
+
+h1 {
+    font-size: 60px;
+    color: darkcyan;
+    margin-top: 2px;
+    margin-bottom: 0px;
+    position: center;
+    width:100%;
+    display:flex;
+    justify-content: center;
+}
+
+h2 {
+    font-size: 40px;
+    color: black;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    position: center;
+}
+
+h3 {
+    padding-top: 50px;
+    font-size: 40px;
+    color: white;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    position: center;
+}
+
+p {
+    position: center;
+    font-size: 2em;
+}
