@@ -1,11 +1,26 @@
+const express = require("express");
+const port = process.env.PORT || 5000;
+const path = require("path");
+
+const controllers = require("./controllers.js")
 
 
+express()
+    .use(express.json()) //supports json encoded bodies
+    .use(express.urlencoded({extended: true}))
+    .use(express.static(path.join(__dirname, "public")))
+    .get("/soft_drink_list", function(req, res) {
+      console.log("getting soft drink list...");
+      res.json({success:true});
+	})
 
+    .get("/soft_drink/:id", controllers.handleGetSoftDrink)
 
+    .post("/soft_drink", controllers.handlePostSoftDrink)
 
-
-
-
+    .listen(port, function() {                                                 
+      console.log("Server listening on port " + port);                                                                                                      
+	}); 
 
 
 

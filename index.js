@@ -1,25 +1,29 @@
-const express = require("express");
+/*const express = require("express");
 const port = process.env.PORT || 5000;
-const path =require("path");
+const path = require("path");
+
+const controllers = require("./controllers.js")
 
 
 express()
+    .use(express.json()) //supports json encoded bodies
+    .use(express.urlencoded({extended: true}))
     .use(express.static(path.join(__dirname, "public")))
     .get("/soft_drink_list", function(req, res) {
       console.log("getting soft drink list...");
       res.json({success:true});
+	})
 
-      .get("/soft_drink", handleGetSoftDrink)
+    .get("/soft_drink/:id", controllers.handleGetSoftDrink)
 
+    .post("/soft_drink", controllers.handlePostSoftDrink)
 
     .listen(port, function() {                                                 
-      console.log('Server listening on port' + port);                                                                                                      
+      console.log("Server listening on port " + port);                                                                                                      
 	}); 
 
-      function handleGetSoftDrink(req, res) {
-	  console.log("getting details for a soft drink");
-	  res.json({success:true});
-      }
+
+*/
 
 
 
@@ -27,14 +31,7 @@ express()
 
 
 
-
-
-
-
-
-
-
-/*var express = require('express');                                                                                                                                                  
+var express = require('express');                                                                                                                                                  
 var app = express();                                                                                                                                                                                                                                                                                                              
 const { Pool } = require("pg");                                                                                                       
 const connectionString = process.env.DATABASE_URL;                                                                                                                                  
@@ -50,7 +47,7 @@ app.get('/getReviews', function(request, response) {
 	getReviews(request, response);
     });
 
-
+/*
 app.get('/reviews', function(req, res, next) {
 	pg.connect(connectionString, function(err, client, done) {
 		if (err) {
@@ -67,6 +64,7 @@ app.get('/reviews', function(req, res, next) {
 	    });
     });
 
+*/
 
 
 
@@ -116,7 +114,7 @@ function getBusinessFromDb(id, callback) {
 
     function getReviewsFromDb(id, callback) {
 	console.log("Getting reviews from DB with id: " + id);
-	var sql = "SELECT * FROM reviews";
+	var sql = "SELECT * FROM reviews  WHERE id = $1::int";
 	var params = [id];
 
 	pool.query(sql, params, function(err, result) {
@@ -128,4 +126,4 @@ function getBusinessFromDb(id, callback) {
 		console.log("Found result: " + JSON.stringify(result.rows));
 		callback(null, result.rows);
 	    });                                                                                                                                                
-	    }                               */
+    }
