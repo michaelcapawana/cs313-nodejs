@@ -9,7 +9,7 @@ function displayBusinesses()
 	    myObj = JSON.parse(this.responseText);
 	    txt += "<table border='1'>"
 	    for (x in myObj) {
-		txt += "<tr><td><a href="www.google.com">" + myObj[x].name + "</a></td></tr>";
+		txt += "<tr><td><a href='www.google.com'>" + myObj[x].name + "</a></td></tr>";
 	    }
 	    txt += "</table>"
 	    document.getElementById("display").innerHTML = txt;
