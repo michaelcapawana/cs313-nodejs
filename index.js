@@ -44,7 +44,9 @@ app.set("view engine", "ejs");
 
 app.use(express.static(__dirname + '/public'));                                                                                                                                     
                                                                                                                                                                                     
-app.get('/getBusiness', function(request, response) {                                                                                                                                      getBusiness(request, response);                                                                                                                                               });        
+app.get('/getBusiness', function(request, response) {                                                                                                                                      getBusiness(request, response);
+	console.log("This works");
+});        
 
 app.get('/ibc', function(request, response) {
 

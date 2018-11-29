@@ -6,6 +6,6 @@ function displayBusinesses()
 	    document.getElementbyId("leftSide").innerHTML = this.responseText;
 	}
     };
-    xhttp.open("GET", "/getBusiness", true);
+    xhttp.open("GET", window.location.hostname + "/getBusiness", true);
     xhtp.send();
 }
