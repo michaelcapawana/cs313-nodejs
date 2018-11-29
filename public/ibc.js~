@@ -4,11 +4,16 @@ function displayBusinesses()
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
 	if (this.readyState == 4 && this.status == 200) {
-	    alert("Does this Work?");
+	    //alert("Does this Work?");
 	    //alert(this.responseText);
 	    var string = "<p>" + JSON.stringify(this.responseText) + "</p>";
-	    alert(string);
-	    document.getElementById("display").innerHTML = string;
+	    var txt += "<table border='1'>"
+	    for (x in myObj) {
+		txt += "<tr><td>" + string[x].name + "</td></tr>";
+	    }
+	    txt += "</table>"
+	    //alert(string);
+	    document.getElementById("display").innerHTML = txt;
 	    
 	} else {
 	    //alert(this.readyState);

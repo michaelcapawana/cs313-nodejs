@@ -6,7 +6,7 @@ function displayBusinesses()
 	if (this.readyState == 4 && this.status == 200) {
 	    //alert("Does this Work?");
 	    //alert(this.responseText);
-	    var string = "<p>" + JSON.stringify(this.responseText) + "</p>";
+	    var string = "<p>" + JSON.parse(this.responseText) + "</p>";
 	    var txt += "<table border='1'>"
 	    for (x in myObj) {
 		txt += "<tr><td>" + string[x].name + "</td></tr>";
