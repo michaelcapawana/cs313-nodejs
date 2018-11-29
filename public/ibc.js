@@ -7,6 +7,7 @@ function displayBusinesses()
 	    //alert("Does this Work?");
 	    //alert(this.responseText);
 	    var string = JSON.stringify(responseText);
+	    alert(string);
 	    document.getElementbyId("display").innerHTML = string;
 	    
 	} else {
