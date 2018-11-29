@@ -10,8 +10,8 @@ function displayBusinesses()
 	    txt += "<table border='1'>"
 	    for (x in myObj) {
 		var myidtoinsert = Number(x) + 1 ;
-		alert(myidtoinsert);
-		document.getElementById('link').href += myidtoinsert;
+		//		alert(myidtoinsert);
+		alert(document.getElementById('link').href += myidtoinsert);
 		txt += "<tr><td><a href='/getReviews?id=' id='link'>" + myObj[x].name + "</a></td></tr>";
 	    }
 	    txt += "</table>"
