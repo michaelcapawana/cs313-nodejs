@@ -11,6 +11,7 @@ function displayBusinesses()
 	    alert(this.status);
 	}
     };
+    alert(window.location.hostname + "/getBusiness");
     xhttp.open("GET", window.location.hostname + "/getBusiness", true);
     xhttp.send();
 }
