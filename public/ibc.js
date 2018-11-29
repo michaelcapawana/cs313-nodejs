@@ -4,9 +4,9 @@ function displayBusinesses()
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
 	if (this.readyState == 4 && this.status == 200) {
-	    //alert("Does this Work?");
+	    alert("Does this Work?");
 	    //alert(this.responseText);
-	    var string = JSON.stringify(responseText);
+	    var string = JSON.parse(responseText);
 	    alert(string);
 	    document.getElementbyId("display").innerHTML = string;
 	    
