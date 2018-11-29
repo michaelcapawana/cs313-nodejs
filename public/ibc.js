@@ -9,7 +9,7 @@ function displayBusinesses()
 	    myObj = JSON.parse(this.responseText);
 	    txt += "<table border='1'>"
 	    for (x in myObj) {
-		var myidtoinsert = 1 ;
+		var myidtoinsert = Number(x) + 1 ;
 		alert(myidtoinsert);
 		//document.getElementById('link1').href += myidtoinsert;
 		txt += "<tr><td><a href='/getReviews?id=' myidtoinsert>" + myObj[x].name + "</a></td></tr>";
