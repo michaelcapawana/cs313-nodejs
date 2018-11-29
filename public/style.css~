@@ -28,7 +28,7 @@ body {
     text-align: center;
 }
 
-#leftSide {
+.leftSide {
     background-color: darkcyan;
     flex: 1;
     padding: 5rem;
