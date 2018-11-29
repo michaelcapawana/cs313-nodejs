@@ -6,7 +6,7 @@ function displayBusinesses()
 	if (this.readyState == 4 && this.status == 200) {
 	    alert("Does this Work?");
 	    //alert(this.responseText);
-	    var string = "<h1>" + JSON.stringify(this.responseText) + "</h1>";
+	    var string = "<h1 id="display">" + JSON.stringify(this.responseText) + "</h1>";
 	    alert(string);
 	    document.getElementById("display").innerHTML = string;
 	    
