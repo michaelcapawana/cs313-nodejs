@@ -1,5 +1,5 @@
 function searchMovie() {
-    var yourSearch = $("#txtSearch").val();
+    var yourSearch = $("#search").val();
     var params = {s: yourSearch, apikey:"byuidaho"};
     $.get("http://www.omdbapi.com/", params, function(data, status){
 	    update(data)});
