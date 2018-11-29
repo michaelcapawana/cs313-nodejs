@@ -38,6 +38,7 @@ body {
     flex: 1;
     padding: 5rem;
     text-align: center;
+    overflow-y: auto;
 }
 
 .banner {
