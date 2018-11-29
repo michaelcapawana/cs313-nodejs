@@ -33,7 +33,7 @@ function displayBusinesses()
 
 
 
-var obj, dbParam, xmlhttp, myObj, x, txt = "";
+/*var obj, dbParam, xmlhttp, myObj, x, txt = "";
 obj = { table: "customers", limit: 20 };
 dbParam = JSON.stringify(obj);
 xmlhttp = new XMLHttpRequest();
@@ -47,4 +47,4 @@ xmlhttp.onreadystatechange = function() {
         txt += "</table>"        
         document.getElementById("demo").innerHTML = txt;
     }
-};
+    };*/
