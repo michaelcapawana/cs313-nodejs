@@ -14,7 +14,7 @@ function displayBusinesses()
 		//document.getElementById('link').href += myidtoinsert;
 		txt += "<tr><td><a href='/getReviews?id=' id='link'>" + myObj[x].name + "</a></td></tr>";
 
-		document.getElementById('link').href += myidtoinsert;
+		//document.getElementById('link').href += myidtoinsert;
 	    }
 	    txt += "</table>"
 	    document.getElementById("display").innerHTML = txt;
