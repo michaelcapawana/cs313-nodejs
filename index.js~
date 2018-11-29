@@ -46,6 +46,9 @@ app.use(express.static(__dirname + '/public'));
                                                                                                                                                                                     
 app.get('/getBusiness', function(request, response) {                                                                                                                                      getBusiness(request, response);                                                                                                                                               });        
 
+app.get('/ibc', function(request, response) {
+
+    });
 
 app.get('/getReviews', function(request, response) {
 	getReviews(request, response);

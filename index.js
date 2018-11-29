@@ -107,18 +107,18 @@ app.listen(app.get('port'), function() {
     });                                                                                                                                                                             
                                                                                                                                                                                     
 function getBusiness(request, response) {                                                                                                                                               var id = request.query.id;                                                                                                                                                      
-    getBusinessFromDb(id, function(error, result) {                                                                                                                                     if (error || result == null || result.length != 1) {                                                                                                                    
+    getBusinessFromDb(id, function(error, result) {                                                                                                                                     if (error || result == null) {                                                                                                                    
                 response.status(500).json({success: false, data: error});                                                                                                           
             } else {                                                                                                                                                                
-                var business = result[0];                                                                                                                                                           response.status(200).json(result[0]);                                                                                                                               
+                var business = result[0];                                                                                                                                                           response.status(200).json(result);                                                                                                                               
             }                                                                                                                                                                       
         });                                                                                                                                                                         
 }                                                                                                                                                                                   
                                                                                                                                                                                     
 function getBusinessFromDb(id, callback) {                                                                
     console.log("Getting business from DB with id: " + id);
-    var sql = "SELECT id, name, score FROM business WHERE id = $1::int";                   
-    var params = [id];                                                                                                                                                              
+    var sql = "SELECT id, name, score FROM business";                   
+    var params = [];                                                                                                                                                              
                                                                                                                                                                                     
     pool.query(sql, params, function(err, result) {                                                                                                                                 
             if (err) {                                                                                                                                                             
