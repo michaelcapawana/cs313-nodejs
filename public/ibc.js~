@@ -12,5 +12,5 @@ function displayBusinesses()
 	}
     };
     xhttp.open("GET", window.location.hostname + "/getBusiness", true);
-    xhtp.send();
+    xhttp.send();
 }
