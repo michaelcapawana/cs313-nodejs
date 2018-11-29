@@ -11,7 +11,7 @@ function displayBusinesses()
 	    for (x in myObj) {
 		var myidtoinsert = x + 1;
 		document.getElementById("link1").href += myidtoinsert;
-		txt += "<tr><td><a href='/getReviews?id=1' id='link1'>" + myObj[x].name + "</a></td></tr>";
+		txt += "<tr><td><a href='/getReviews?id=' id='link1'>" + myObj[x].name + "</a></td></tr>";
 	    }
 	    txt += "</table>"
 	    document.getElementById("display").innerHTML = txt;
