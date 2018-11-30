@@ -39,6 +39,7 @@ function displayReviews()
 	alert(this.readyState);
 	alert(this.status);
         if (this.readyState == 4 && this.status == 200) {
+	    alert("WE MADE IT!!!")
             myObj = JSON.parse(this.responseText);
             txt += "<table border='1'>"
             for (x in myObj) {
@@ -52,6 +53,4 @@ function displayReviews()
     };
     xhttp.open("GET", "/getReviews", true);
     xhttp.send();
-
-
 }
