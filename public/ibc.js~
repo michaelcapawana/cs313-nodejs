@@ -5,6 +5,29 @@ function displayBusinesses()
     dbParam = JSON.stringify(obj);
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
+        alert(this.readyState);
+        alert(this.status);
+        if (this.readyState == 4 && this.status == 200) {
+            alert("WE MADE IT!!!")
+		myObj = JSON.parse(this.responseText);
+            txt += "<table border='1'>"
+		for (x in myObj) {
+		    txt += "<tr><td>" + myObj[x].name + "</td></tr>";
+		}
+            txt += "</table>"
+		document.getElementById("displayReviews").innerHTML = txt;
+
+        } else {
+        }
+    };
+    xhttp.open("GET", "/getReviews", true);
+    xhttp.send();
+
+    /*    var obj, dbParam, xmlhttp, myObj, x, txt = "";
+    obj = { table: "customers", limit: 20 };
+    dbParam = JSON.stringify(obj);
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
 	if (this.readyState == 4 && this.status == 200) {
 	    myObj = JSON.parse(this.responseText);
 	    txt += "<table border='1'>"
@@ -24,7 +47,7 @@ function displayBusinesses()
 	}
     };
     xhttp.open("GET", "/getBusiness", true);
-    xhttp.send();
+    xhttp.send();*/
 }
 
 
