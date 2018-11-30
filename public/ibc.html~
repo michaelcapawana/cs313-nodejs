@@ -18,8 +18,8 @@
 <div class="body">
 <div id="leftSide">
 <h2>Groups:</h2>
-<p>
- <!-- Insert Select Statement Results Here -->
+<p id="display">
+
 </p>
 </div>
 
