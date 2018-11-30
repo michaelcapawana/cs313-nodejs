@@ -14,7 +14,7 @@ function displayBusinesses()
 		//document.getElementById('link').href += myidtoinsert;
 
 		//txt += "<tr><td><a href='/getReviews?id=' >" + myObj[x].name + "</a></td></tr>";
-		txt += "<tr><td><a href='' onclick='displayReviews(xhttp)' >" + myObj[x].name + "</a></td></tr>";
+		txt += "<tr><td><a href='' onclick='displayReviews()' >" + myObj[x].name + "</a></td></tr>";
 		//document.getElementById('link').href += myidtoinsert;
 	    }
 	    txt += "</table>"
@@ -28,12 +28,12 @@ function displayBusinesses()
 }
 
 
-function displayReviews(xhttp)
+function displayReviews()
 {
-    var obj, dbParam, xmlhttp, myObj, x, txt = "";
-    obj = { table: "customers", limit: 20 };
-    dbParam = JSON.stringify(obj);
-    //var xhttp = new XMLHttpRequest();
+    //var obj, dbParam, xmlhttp, myObj, x, txt = "";
+    //obj = { table: "customers", limit: 20 };
+    //dbParam = JSON.stringify(obj);
+    var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
         alert(this.readyState);
         alert(this.status);
