@@ -10,11 +10,11 @@ function displayBusinesses()
         if (this.readyState == 4 && this.status == 200) {
             alert("WE MADE IT!!!")
 		myObj = JSON.parse(this.responseText);
-            txt += "<table border='1'>"
+	        txt += "<table border='1'>";
 		for (x in myObj) {
-		    txt += "<tr><td>" + myObj[x].name + "</td></tr>";
+		    txt += "<tr><td>" + myObj[x].reviewer + "</td></tr>";
 		}
-            txt += "</table>"
+		txt += "</table>";;
 		document.getElementById("displayReviews").innerHTML = txt;
 
         } else {
