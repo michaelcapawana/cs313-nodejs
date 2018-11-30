@@ -30,6 +30,7 @@ function displayBusinesses()
 
 function displayReviews()
 {
+    alert("it works");
     var obj, dbParam, xmlhttp, myObj, x, txt = "";
     obj = { table: "customers", limit: 20 };
     dbParam = JSON.stringify(obj);
