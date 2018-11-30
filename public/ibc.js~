@@ -1,12 +1,9 @@
-
-
-var xhttp = new XMLHttpRequest();
 function displayBusinesses() 
 {
     var obj, dbParam, xmlhttp, myObj, x, txt = "";
     obj = { table: "customers", limit: 20 };
     dbParam = JSON.stringify(obj);
-    //var xhttp = new XMLHttpRequest();
+    var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
 	if (this.readyState == 4 && this.status == 200) {
 	    myObj = JSON.parse(this.responseText);
@@ -33,14 +30,14 @@ function displayBusinesses()
 
 function displayReviews()
 {
-    //var obj, dbParam, xmlhttp, myObj, x, txt = "";
-    //obj = { table: "customers", limit: 20 };
-    //dbParam = JSON.stringify(obj);
-    //var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function() {
-        alert(this.readyState);
-        alert(this.status);
-        if (this.readyState == 4 && this.status == 200) {
+    var obj, dbParam, xmlhttp, myObj, x, txt = "";
+    obj = { table: "customers", limit: 20 };
+    dbParam = JSON.stringify(obj);
+    var xhttp = new XMLHttpRequest();
+    //xhttp.onreadystatechange = function() {
+    //alert(this.readyState);
+    //alert(this.status);
+    //if (this.readyState == 4 && this.status == 200) {
             alert("WE MADE IT!!!")
                 myObj = JSON.parse(this.responseText);
 	    txt += "<table border='1'>";
@@ -50,8 +47,8 @@ function displayReviews()
 	    txt += "</table>";;
 	    document.getElementById("displayReviews").innerHTML = txt;
 
-        } else {
-        }
+	    //} else {
+	    //}
     };
     xhttp.open("GET", "/getReviews", true);
     xhttp.send();

@@ -49,7 +49,7 @@ function displayReviews()
 
 	    //} else {
 	    //}
-    };
+	    //};
     xhttp.open("GET", "/getReviews", true);
     xhttp.send();
 }
