@@ -27,7 +27,7 @@ function displayBusinesses()
     xhttp.send();
 }
 
-
+/*
 function displayReviews()
 {
     var ob, dbPara, xmlhttp, myOb, y, text = "";
@@ -53,3 +53,4 @@ function displayReviews()
 
 
 }
+*/
