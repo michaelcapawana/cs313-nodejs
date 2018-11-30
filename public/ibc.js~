@@ -35,8 +35,8 @@ function displayReviews()
     //dbParam = JSON.stringify(obj);
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
-        alert(this.readyState);
-        //alert(this.status);
+        //alert(this.readyState);
+        alert(this.status);
         if (this.readyState == 4 && this.status == 200) {
             alert("WE MADE IT!!!")
                 myObj = JSON.parse(this.responseText);
