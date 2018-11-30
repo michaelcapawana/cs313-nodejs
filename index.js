@@ -135,6 +135,40 @@ function getBusinessFromDb(id, callback) {
 }
 
 
+
+
+
+function getReviews(request, response) {                                                                                                                                           \
+    var id = request.query.id;
+    getReviewsFromDb(id, function(error, result) {                                                                                                                                 \
+	    if (error || result == null) {
+                response.status(500).json({success: false, data: error});
+            } else {
+                var business = result[0];                                                                                                                                           \
+                response.status(200).json(result);
+            }
+        });
+}
+
+function getReviewsFromDb(id, callback) {
+    console.log("Getting reviews from DB with id: " + id);
+    var sql = "SELECT * FROM reviews";
+    var params = [];
+
+    pool.query(sql, params, function(err, result) {
+            if (err) {
+                console.log("Error in query: ")
+                    console.log(err);
+                callback(err, null);
+            }
+            console.log("Found result: " + JSON.stringify(result.rows));
+            callback(null, result.rows);
+        });
+
+}
+
+
+/*
     function getReviews(request, response) {                                                                                                     
 	var id = request.query.id;
 	getReviewsFromDb(id, function(error, result) {                                                                                                                       
@@ -162,7 +196,7 @@ function getBusinessFromDb(id, callback) {
 		callback(null, result.rows);
 	    });                                                                                                                                                
     }
-
+*/
 
 
 
