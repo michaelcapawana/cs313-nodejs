@@ -12,7 +12,8 @@ function displayBusinesses()
 		var myidtoinsert = Number(x) + 1 ;
       		//alert(myidtoinsert);
 		//document.getElementById('link').href += myidtoinsert;
-		txt += "<tr><td><a href='/getReviews?id=' id='link'>" + myObj[x].name + "</a></td></tr>";
+
+		txt += "<tr><td><a href='/getReviews?id=' >" + myObj[x].name + "</a></td></tr>";
 
 		//document.getElementById('link').href += myidtoinsert;
 	    }
