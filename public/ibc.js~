@@ -18,7 +18,7 @@ function displayBusinesses()
 		//document.getElementById('link').href += myidtoinsert;
 	    }
 	    txt += "</table>"
-	    document.getElementById("display").innerHTML = txt;
+	    document.getElementById("displayBusiness").innerHTML = txt;
 	    
 	} else {
 	}
@@ -27,28 +27,29 @@ function displayBusinesses()
     xhttp.send();
 }
 
+
 function displayReviews()
 {
-    var obj, dbParam, xmlhttp, myObj, x, txt = "";
-    obj = { table: "customers", limit: 20 };
-    dbParam = JSON.stringify(obj);
-    var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function() {
+    var ob, dbPara, xmlhttp, myOb, y, text = "";
+    ob = { table: "customers", limit: 20 };
+    dbPara = JSON.stringify(ob);
+    var xhtt = new XMLHttpRequest();
+    xhtt.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
-            myObj = JSON.parse(this.responseText);
-            txt += "<table border='1'>"
-            for (x in myObj) {
-                var myidtoinsert = Number(x) + 1 ;
-                txt += "<tr><td>" + myObj[x].name + "</td></tr>";
+            myOb = JSON.parse(this.responseText);
+            text += "<table border='1'>"
+            for (y in myOb) {
+                var myidtoinsert = Number(y) + 1 ;
+                text += "<tr><td>" + myOb[y].name + "</td></tr>";
             }
-            txt += "</table>"
-            document.getElementById("display").innerHTML = txt;
+            text += "</table>"
+            document.getElementById("displayReviews").innerHTML = text;
 
         } else {
         }
     };
-    xhttp.open("GET", "/getReviews", true);
-    xhttp.send();
+    xhtt.open("GET", "/getReviews", true);
+    xhtt.send();
 
 
 }
