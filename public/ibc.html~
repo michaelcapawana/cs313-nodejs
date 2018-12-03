@@ -18,7 +18,7 @@
 <div class="body">
 <div id="leftSide">
 <h2>Groups:</h2>
-<p id="display">
+<p id="displayBusiness">
 
 </p>
 </div>
@@ -29,9 +29,9 @@
 
 
 <div class="rightSide">
-<h2></h2>
-<p>
-<!-- Insert Business Detail Results Here -->
+<h2>Reviews:</h2>
+<p id="displayReviews">
+
 </p>
 </div>
 </div>
