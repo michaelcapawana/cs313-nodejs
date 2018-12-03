@@ -100,3 +100,10 @@ p {
     position: center;
     font-size: 2em;
 }
+
+table {
+    margin-left: 100px;
+    border: none;
+    border-collapse:collapse;
+    
+}

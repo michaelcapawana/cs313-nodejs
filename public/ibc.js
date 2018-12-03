@@ -7,7 +7,7 @@ function displayBusinesses()
     xhttp.onreadystatechange = function() {
 	if (this.readyState == 4 && this.status == 200) {
 	    myObj = JSON.parse(this.responseText);
-	    txt += "<table border='1'>"
+	    txt += "<table>"
 	    for (x in myObj) {
 		var myidtoinsert = Number(x) + 1 ;
       		//alert(myidtoinsert);
