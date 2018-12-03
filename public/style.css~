@@ -102,8 +102,8 @@ p {
 }
 
 table {
-    margin-left: 57px;
-    border: none;
-    border-collapse:collapse;
+    margin-left: 33px;
+    padding: 10px;
+    border-spacing: 15px;
     
 }
