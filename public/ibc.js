@@ -42,7 +42,7 @@ function displayBusinesses()
 		myObj = JSON.parse(this.responseText);
 		txt += "<table>";
 		for (x in myObj) {
-		    txt += "<tr><td>" + myObj[x].reviewer + "</td></tr>";
+		    txt += "<tr><td>" + myObj[x].rating + "/5 Stars - " + myObj[x].reviewer + ": " + myObj[x].description + "</td></tr>";
 		}
 		txt += "</table>";;
 		document.getElementById("displayReviews").innerHTML = txt;
