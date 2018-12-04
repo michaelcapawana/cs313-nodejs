@@ -17,7 +17,7 @@ function displayBusinesses()
 
                 //txt += "<tr><td><a href='/getReviews?id=' >" + myObj[x].name + "</a></td></tr>";                                                                                   
 	       
-                txt += "<tr><td><button onclick='displayReviews("+myObj[x].id +")' >" + myObj[x].name + " - " + myObj[x].score + "</button></td></tr>";
+                txt += "<tr><td><a href="#" onclick='displayReviews("+myObj[x].id +")' >" + myObj[x].name + " - " + myObj[x].score + "</a></td></tr>";
                 //document.getElementById('link').href += myidtoinsert;                                                                                                              
             }
             txt += "</table>"
