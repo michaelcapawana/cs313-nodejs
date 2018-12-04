@@ -141,9 +141,9 @@ function getReviews(request, response) {
     var id = request.query.id;
     getReviewsFromDb(id, function(error, result) {                                                                                                             
 	    if (error || result == null) {
-		console.log("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
                 response.status(500).json({success: false, data: error});
             } else {
+		console.log("AAAAAAAAAAAAAAAAAAAAAAA");
                 response.status(200).json(result);
             }
         });

@@ -143,7 +143,6 @@ function getReviews(request, response) {
 	    if (error || result == null) {
                 response.status(500).json({success: false, data: error});
             } else {
-		console.log("AAAAAAAAAAAAAAAAAAAAAAA");
                 response.status(200).json(result);
             }
         });
