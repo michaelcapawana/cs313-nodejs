@@ -28,7 +28,7 @@
 
 
 
-<div class="rightSide">
+<div id="rightSide">
 <h2>Reviews:</h2>
 <p id="displayReviews">
 
