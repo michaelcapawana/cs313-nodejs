@@ -137,14 +137,13 @@ function getBusinessFromDb(id, callback) {
 
 
 
-
-function getReviews(request, response) {                                                                                                                                           \
+function getReviews(request, response) {                                                                                                                 
     var id = request.query.id;
-    getReviewsFromDb(id, function(error, result) {                                                                                                                                 \
+    getReviewsFromDb(id, function(error, result) {                                                                                                                                 
 	    if (error || result == null) {
                 response.status(500).json({success: false, data: error});
             } else {
-                var business = result[0];                                                                                                                                           \
+                var business = result[0];                                                                                                                                
                 response.status(200).json(result);
             }
         });
