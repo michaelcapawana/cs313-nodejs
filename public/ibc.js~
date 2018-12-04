@@ -24,7 +24,9 @@ function displayBusinesses()
             document.getElementById("displayBusiness").innerHTML = txt;
 
         } else {
+	    
         }
+	return false;
     };
     xhttp.open("GET", "/getBusiness", true);
     xhttp.send();
@@ -51,6 +53,7 @@ function displayBusinesses()
 		
 	    } else {
 	    }
+	    return false;
 	};
 	xhttp.open("GET", "/getReviews", true);
 	xhttp.send();
