@@ -150,8 +150,8 @@ function getReviews(request, response) {
 
 function getReviewsFromDb(id, callback) {
     console.log("Getting reviews from DB with id: " + id);
-    var sql = "SELECT * FROM reviews";
-    var params = [];
+    var sql = "SELECT * FROM reviews WHERE id=$1";
+    var params = [id];
 
     pool.query(sql, params, function(err, result) {
             if (err) {
