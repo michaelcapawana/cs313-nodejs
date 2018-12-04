@@ -17,7 +17,7 @@ function displayBusinesses()
 
                 //txt += "<tr><td><a href='/getReviews?id=' >" + myObj[x].name + "</a></td></tr>";                                                                                   
 	       
-                txt += "<tr><td><a href="#" onclick='displayReviews("+myObj[x].id +")' >" + myObj[x].name + " - " + myObj[x].score + "</a></td></tr>";
+                txt += "<tr><td><a href='#' onclick='displayReviews("+myObj[x].id +")' >" + myObj[x].name + " - " + myObj[x].score + "</a></td></tr>";
                 //document.getElementById('link').href += myidtoinsert;                                                                                                              
             }
             txt += "</table>"
@@ -29,7 +29,7 @@ function displayBusinesses()
     };
     xhttp.open("GET", "/getBusiness", true);
     xhttp.send();
-
+    alert(showReviews);
     if(showReviews != 0) {
 	txt = "";
 	var obj, dbParam, xmlhttp, myObj, x, txt = "";
@@ -63,5 +63,5 @@ function displayBusinesses()
 function displayReviews(id)
 {
     showReviews = id;
-    alert(showReviews);
+    // alert(showReviews);
 }

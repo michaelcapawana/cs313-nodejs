@@ -2,6 +2,7 @@ var showReviews = 0;
 
 function displayBusinesses() 
 {
+    if (showReviews == 0){
     var obj, dbParam, xmlhttp, myObj, x, txt = "";
     obj = { table: "customers", limit: 20 };
     dbParam = JSON.stringify(obj);
@@ -30,7 +31,7 @@ function displayBusinesses()
     xhttp.open("GET", "/getBusiness", true);
     xhttp.send();
     alert(showReviews);
-    if(showReviews != 0) {
+    } else {
 	txt = "";
 	var obj, dbParam, xmlhttp, myObj, x, txt = "";
 	obj = { table: "customers", limit: 20 };
@@ -63,5 +64,6 @@ function displayBusinesses()
 function displayReviews(id)
 {
     showReviews = id;
+    displayBusinesses();
     // alert(showReviews);
 }
