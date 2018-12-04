@@ -140,8 +140,8 @@ function getBusinessFromDb(id, callback) {
 function getReviews(request, response) {                                                                                                                 
     var id = request.query.id;
     getReviewsFromDb(id, function(error, result) {                                                                                                             
-	    console.log(result);
 	    if (error || result == null) {
+		console.log("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
                 response.status(500).json({success: false, data: error});
             } else {
                 response.status(200).json(result);
