@@ -169,6 +169,7 @@ function postScore(request, response) {
 }
 
 function postScoreFromDb(body, callback) {
+    console.log("Are we here?");
     var sql = "UPDATE business SET score = $1 WHERE id = $2 returning id";
     var params = [body.score, body.business];
 
