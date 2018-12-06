@@ -23,8 +23,6 @@ app.use(logRequest);
 
 app.post('/login', handleLogin);
 app.post('/logout', handleLogout);
-
-
 app.get('/getServerTime', verifyLogin, getServerTime);
 
 app.listen(app.get('port'), function() {                                                                                                                                        
@@ -38,15 +36,6 @@ function getServerTime(request, response) {
     response.json(result);
 }
 
-function handleLogin(request, response) {
-    var result = {success: false};
-    if (request.body.username == "username" && request.body.password == "password") {
-	request.session.user = request.body.username;
-	result = {success: true};
-    }
-    response.json(result);
-}
-
 function handleLogout(request, response) {
     var result = {success: false};
 
@@ -57,6 +46,16 @@ function handleLogout(request, response) {
 
     response.json(result);
 }
+
+function handleLogin(request, response) {
+    var result = {success: false};
+    if (request.body.username == "username" && request.body.password == "password") {
+        request.session.user = request.body.username;
+        result = {success: true};
+    }
+    response.json(result);
+}
+
 
 function verifyLogin(request, response, next) {
     if (request.session.user) {

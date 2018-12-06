@@ -32,6 +32,11 @@ app.listen(app.get('port'), function() {
         console.log('Node app is running on port', app.get('port'));                                                                                               
     });
 
+function getServerTime(request, response) {
+    var time = new Date();
+    var result = {success: true, time: time};
+    response.json(result);
+}
 
 function handleLogin(request, response) {
     var result = {success: false};
