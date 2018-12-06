@@ -70,8 +70,8 @@ function postReviews()
 	    var score = rating[i].value;
 	}
     }
-    var values = "description=" + description + "&reviewer=" + reviewer + "&rating=" + score + "&business=" + newId;
-  
+    //    var values = "description=" + description + "&reviewer=" + reviewer + "&rating=" + score + "&business=" + newId;
+    var values = {description:description, reviewer:reviewer, rating:score, business: newId};
        var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
 	if (this.readyState == 4 && this.status == 200) {
@@ -81,6 +81,6 @@ function postReviews()
 	}
     };
     xhttp.open("POST", "/postReviews", true);
-    xhttp.send(values.stringify());
+    xhttp.send(values);
     return false;
 }
