@@ -1,4 +1,5 @@
 var newId = 0;
+var score = 0;
 
 function display() 
 {
@@ -84,5 +85,24 @@ function postReviews()
     xhttp.setRequestHeader("Content-type", "application/JSON");
     xhttp.send(JSON.stringify(values));
     document.getElementById("leaveReview").reset();
+    getScore();
     return false;
+}
+
+function getScore()
+{
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            myObj = JSON.parse(this.responseText);
+	    alert(myObj);
+	    //	    for (x in myObj) {
+	    //myObj[x].rating + "/5 Stars - " + myObj[x].reviewer + ": " + myObj[x].description + "</td></tr>";
+	    //}
+            display(newId);
+        } else {
+        }
+    };
+    xhttp.open("GET", "/getScore", true);
+    xhttp.send();
 }

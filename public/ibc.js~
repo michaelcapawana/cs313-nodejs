@@ -1,4 +1,5 @@
 var newId = 0;
+var score = 0;
 
 function display() 
 {
@@ -27,6 +28,7 @@ function display()
     xhttp.open("GET", "/getBusiness", true);
     xhttp.send();
     } else {
+	document.getElementById("leaveReview").reset();
 	var x = document.getElementById("leaveReview");
 	x.style.display = "block";
 	txt = "";
@@ -70,7 +72,6 @@ function postReviews()
 	    var score = rating[i].value;
 	}
     }
-    //    var values = "description=" + description + "&reviewer=" + reviewer + "&rating=" + score + "&business=" + newId;
     var values = {"description":description, "reviewer":reviewer, "rating":score, "business":newId};
        var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
@@ -83,5 +84,21 @@ function postReviews()
     xhttp.open("POST", "/postReviews", true);
     xhttp.setRequestHeader("Content-type", "application/JSON");
     xhttp.send(JSON.stringify(values));
+    document.getElementById("leaveReview").reset();
+    getScore();
     return false;
+}
+
+function getScore()
+{
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            myObj = JSON.parse(this.responseText);
+            display(newId);
+        } else {
+        }
+    };
+    xhttp.open("GET", "/getScore", true);
+    xhttp.send();
 }

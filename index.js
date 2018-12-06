@@ -16,8 +16,11 @@ app.use(bodyParser.urlencoded({ extended: true}));
 app.use(express.static(__dirname + '/public'));                                                                                                                                     
                                                                                                                                                                                     
 app.get('/getBusiness', function(request, response) {                                                                                                                                      getBusiness(request, response);
-	console.log("This works");
-});        
+});
+
+app.get('/getScore', function(request, response) {                                                                            
+	getScore(request, response);
+    });        
 
 app.get('/ibc', function(request, response) {
 
@@ -64,6 +67,34 @@ function getBusinessFromDb(id, callback) {
 
 }
 
+
+
+function getScore(request, response) {                                                                                                                            
+    var id = request.query.id;
+    getScoreFromDb(id, function(error, result) {                                                                                                                        
+	    if (error || result == null) {
+                response.status(500).json({success: false, data: error});
+            } else {
+                response.status(200).json(result);
+            }
+        });
+}
+
+function getScoreFromDb(id, callback) {
+    console.log("Getting business from DB with id: " + id);
+    var sql = "AVG rating FROM reviews";
+    var params = [];
+
+    pool.query(sql, params, function(err, result) {
+            if (err) {
+                console.log("Error in query: ")
+                    console.log(err);
+                callback(err, null);
+            }
+            console.log("Found result: " + JSON.stringify(result.rows));
+            callback(null, result.rows);
+        });
+}
 
 
 
