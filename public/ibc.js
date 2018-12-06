@@ -1,6 +1,4 @@
 var newId = 0;
-//var x = document.getElementById("leaveReview");
-//x.style.display = "none";
 
 function display() 
 {
@@ -17,13 +15,7 @@ function display()
             txt += "<table>"
             for (x in myObj) {
                 var myidtoinsert = Number(x) + 1 ;
-                //alert(myidtoinsert);                                                                                                                                               
-                //document.getElementById('link').href += myidtoinsert;                                                                                                              
-
-                //txt += "<tr><td><a href='/getReviews?id=' >" + myObj[x].name + "</a></td></tr>";                                                                                   
-	       
                 txt += "<tr><td><a href='#' onclick='setId("+myObj[x].id +")' >" + myObj[x].name + " - " + myObj[x].score + "</a></td></tr>";
-                //document.getElementById('link').href += myidtoinsert;                                                                                                              
             }
             txt += "</table>"
             document.getElementById("displayBusiness").innerHTML = txt;
@@ -66,4 +58,26 @@ function setId(id)
 {
     newId = id;
     display();
+}
+
+function postReviews() 
+{
+    var description = document.getElementById("description").value;
+    var reviewer = document.getElementById("reviewer").value;
+    var rating = document.getElementById("rating").value;
+    alert(description);
+    alert(reviewer);
+    alert(rating);
+    alert(newId);
+    /*    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+	if (this.readyState == 4 && this.status == 200) {
+	    myObj = JSON.parse(this.responseText);
+	    display(newId);
+	} else {
+	}
+    };
+    xhttp.open("POST", "/postReviews", true);
+    xhttp.send();*/
+
 }

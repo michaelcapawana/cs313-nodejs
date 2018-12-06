@@ -22,7 +22,7 @@
 <div id="rightSide">
 <h2>Reviews:</h2>
 
-<form id="leaveReview"action="/postReviews" method="post" accept-charset='UTF-8'>
+<form id="leaveReview"  method="post" accept-charset='UTF-8'>
   <br>
   <input type="radio" name="rating" value=1>1 Star
   <input type="radio" name="rating" value=2>2 Star
@@ -31,12 +31,12 @@
   <input type="radio" name="rating" value=5>5 Star
   <br>
   <br>
-  <textarea rows="10" cols="70" name="details"></textarea>
+  <textarea rows="5" cols="50" name="details" placeholder="Your Review"></textarea>
   <br>
   <br>
-  <input type="text" name="name">
+  <input type="text" size="30" name="name" placeholder="Your Name">
   <br>
-  <input type="submit" value="Leave Review" name="leaveReview" style="color: black; font-size: 2em; margin-top:25px;">
+  <input type="submit" onclick="postReviews()" value="Leave Review" name="leaveReview" style="color: black; font-size: 2em; margin-top:25px;">
 </form>
 
 <p id="displayReviews"></p>
