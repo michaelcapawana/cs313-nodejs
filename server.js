@@ -53,13 +53,6 @@ function handleLogout(request, response) {
     response.json(result);
 }
 
-function getServerTime(request, response) {
-    var time = new Date();
-    
-    var result = {success: true, time: time};
-    response.json(result); 
-}
-
 function verifyLogin(request, response, next) {
     if (request.session.user) {
 	next();
