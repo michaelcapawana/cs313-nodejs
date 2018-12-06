@@ -1,5 +1,13 @@
 //Teach 11 Activity
-
+var express = require('express');                                                                                                                                                  
+var app = express();                                                                                                                                                                 
+                                                                                                                                                                                     
+const { Pool } = require("pg");                                                                                                                                                      
+const connectionString = process.env.DATABASE_URL;                                                                                                                                   
+const pool = new Pool({connectionString: connectionString});                                                                                                                         
+                                                                                                                                                                                     
+app.set('port', (process.env.PORT || 5000));            
+app.use(express.static(__dirname + '/public')); 
 
 
 
