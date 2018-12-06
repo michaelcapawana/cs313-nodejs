@@ -27,6 +27,7 @@ function display()
     xhttp.open("GET", "/getBusiness", true);
     xhttp.send();
     } else {
+	document.getElementById("leaveReview").reset();
 	var x = document.getElementById("leaveReview");
 	x.style.display = "block";
 	txt = "";
@@ -70,7 +71,6 @@ function postReviews()
 	    var score = rating[i].value;
 	}
     }
-    //    var values = "description=" + description + "&reviewer=" + reviewer + "&rating=" + score + "&business=" + newId;
     var values = {"description":description, "reviewer":reviewer, "rating":score, "business":newId};
        var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
@@ -83,5 +83,6 @@ function postReviews()
     xhttp.open("POST", "/postReviews", true);
     xhttp.setRequestHeader("Content-type", "application/JSON");
     xhttp.send(JSON.stringify(values));
+    document.getElementById("leaveReview").reset();
     return false;
 }
