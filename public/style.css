@@ -1,6 +1,10 @@
 html, body, section {
   height: 100%;
   background-color:black;
+  width: 100%;
+  position: absolute;
+  clip: auto;
+  overflow: hidden;
 }
 
 #display {
