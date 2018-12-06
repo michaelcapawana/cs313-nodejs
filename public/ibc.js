@@ -112,6 +112,7 @@ function postScore()
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
+	    newId = 0;
             display(newId);
         } else {
         }
@@ -119,6 +120,6 @@ function postScore()
     xhttp.open("POST", "/postScore", true);
     xhttp.setRequestHeader("Content-type", "application/JSON");
     xhttp.send(JSON.stringify(values));
-    display(newId);
+    //display(newId);
     return false;
 }
