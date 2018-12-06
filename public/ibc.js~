@@ -82,6 +82,6 @@ function postReviews()
     };
     xhttp.open("POST", "/postReviews", true);
     xhttp.setRequestHeader("Content-type", "application/JSON");
-    xhttp.send(values);
+    xhttp.send(values.stringify());
     return false;
 }
