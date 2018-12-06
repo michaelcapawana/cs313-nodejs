@@ -23,7 +23,7 @@ app.get('/getReviews', function(request, response) {
 	getReviews(request, response);
     });
 
-app.post('/postReview', function(request, response) {
+app.post('/postReviews', function(request, response) {
 	postReview(request, response);
     });
 
