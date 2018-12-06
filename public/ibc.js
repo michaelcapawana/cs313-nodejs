@@ -70,12 +70,12 @@ function postReviews()
 	    var score = rating[i].value;
 	}
     }
-
+    var values = "description=" + description + "&reviewer=" + reviewer + "&rating=" + score + "&business=" + newId;
     alert(description);
     alert(reviewer);
     alert(score);
     alert(newId);
-    /*    var xhttp = new XMLHttpRequest();
+       var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
 	if (this.readyState == 4 && this.status == 200) {
 	    myObj = JSON.parse(this.responseText);
@@ -84,6 +84,6 @@ function postReviews()
 	}
     };
     xhttp.open("POST", "/postReviews", true);
-    xhttp.send();*/
+    xhttp.send(values);
     return false;
 }

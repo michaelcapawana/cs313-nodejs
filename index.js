@@ -1,36 +1,3 @@
-/*const express = require("express");
-const port = process.env.PORT || 5000;
-const path = require("path");
-
-const controllers = require("./controllers.js")
-
-
-express()
-    .use(express.json()) //supports json encoded bodies
-    .use(express.urlencoded({extended: true}))
-    .use(express.static(path.join(__dirname, "public")))
-    .get("/soft_drink_list", function(req, res) {
-      console.log("getting soft drink list...");
-      res.json({success:true});
-	})
-
-    .get("/soft_drink/:id", controllers.handleGetSoftDrink)
-
-    .post("/soft_drink", controllers.handlePostSoftDrink)
-
-    .listen(port, function() {                                                 
-      console.log("Server listening on port " + port);                                                                                                      
-	}); 
-
-
-*/
-
-
-
-
-
-
-
 var express = require('express');                                                                                                                                                  
 var app = express();                                                                                                                                                                                                                                                                                                              
 const { Pool } = require("pg");                                                                                                       
@@ -59,47 +26,6 @@ app.get('/getReviews', function(request, response) {
 app.post('/postReview', function(request, response) {
 	postReview(request, response);
     });
-
-
-
-
-/*
-router.post('/users', function(req, res, next) {
-	pool.connect(connectionString, function(err, client, done) {
-		if (err) {
-		    return console.error('error fetching client from pool', err);
-		}
-		console.log("connected to database");
-		client.query('INSERT INTO users(username, password) VALUES($1, $2) returning id', [req.body.username, req.body.password], function(err, result) {
-			done();
-			if(err) {
-			    return console.error('error running query', err);
-			}
-			res.send(result);
-		    });
-	    });
-    });
-*/
-
-
-/*
-app.get('/reviews', function(req, res, next) {
-	pg.connect(connectionString, function(err, client, done) {
-		if (err) {
-		    return console.error('error fetching client from pool', err);
-		}
-		console.log("connected to database");
-		client.query('SELECT * FROM reviews', function(err, result) {
-			done();
-			if (err) {
-			    return console.error('error running query', err);
-			}
-			res.send(result);
-		    });
-	    });
-    });
-
-*/
 
 
 
@@ -167,43 +93,9 @@ function getReviewsFromDb(id, callback) {
 }
 
 
-/*
-    function getReviews(request, response) {                                                                                                     
-	var id = request.query.id;
-	getReviewsFromDb(id, function(error, result) {                                                                                                                       
-		if (error || result == null) {
-		    response.status(500).json({success: false, data: error});
-		} else {
-		    var reviews = result[0];                                                                                             
-		    response.status(200).json(result[0]);
-		}
-	    });
-    }
-
-    function getReviewsFromDb(id, callback) {
-	console.log("Getting reviews from DB with id: " + id);
-	var sql = "SELECT * FROM reviews  WHERE id = $1::int";
-	var params = [id];
-
-	pool.query(sql, params, function(err, result) {
-		if (err) {
-		    console.log("Error in query: ")
-			console.log(err);
-		    callback(err, null);
-		}
-		console.log("Found result: " + JSON.stringify(result.rows));
-		callback(null, result.rows);
-	    });                                                                                                                                                
-    }
-*/
-
-
-
-
-
-
 function postReview(request, response) {
     var id = request.query.id;
+    console.log(request.query);
     postReviewFromDb(id, function(error, result) {
 	    if (error || result == null) {
 		response.status(500).json({success: false, data: error});
@@ -216,7 +108,7 @@ function postReview(request, response) {
 
 function postReviewFromDb(id, callback) {
     console.log("Posting review to DB with id: " + id);
-    var sql = "INSERT INTO reviews(rating, description, reviewer, business_id) VALUES(5, 'So Good!', 'Michael Capawana', 6) returning id";
+    var sql = "INSERT INTO reviews(rating, description, reviewer, business_id) VALUES($1, $2, $3, $4) returning id";
     var params = [id];
 
     pool.query(sql, params, function(err, result) {
