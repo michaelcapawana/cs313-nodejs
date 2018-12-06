@@ -15,7 +15,8 @@ function display()
             myObj = JSON.parse(this.responseText);
             txt += "<table>"
             for (x in myObj) {
-		var rounded = Math.round( myObj[x].score * 10 ) / 10;
+		var rounded = myObj[x];
+		//var rounded = Math.round( myObj[x].score * 10 ) / 10;
                 var myidtoinsert = Number(x) + 1 ;
                 txt += "<tr><td><a href='#' onclick='setId("+myObj[x].id +")' >" + myObj[x].name + " - " + rounded + "</a></td></tr>";
             }
