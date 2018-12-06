@@ -109,7 +109,6 @@ function postReview(request, response) {
 }
 
 function postReviewFromDb(body, callback) {
-    console.log("Posting review to DB with id: " + id);
     var sql = "INSERT INTO reviews(rating, description, reviewer, business_id) VALUES($1, $2, $3, $4) returning id";
     var params = [body.rating, body.description, body.reviewer, body.business];
 
