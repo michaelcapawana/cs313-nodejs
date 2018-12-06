@@ -15,8 +15,9 @@ function display()
             myObj = JSON.parse(this.responseText);
             txt += "<table>"
             for (x in myObj) {
+		var rounded = Math.round( myObj[x].score * 10 ) / 10;
                 var myidtoinsert = Number(x) + 1 ;
-                txt += "<tr><td><a href='#' onclick='setId("+myObj[x].id +")' >" + myObj[x].name + " - " + myObj[x].score + "</a></td></tr>";
+                txt += "<tr><td><a href='#' onclick='setId("+myObj[x].id +")' >" + myObj[x].name + " - " + rounded + "</a></td></tr>";
             }
             txt += "</table>"
             document.getElementById("displayBusiness").innerHTML = txt;
@@ -97,7 +98,6 @@ function getScore()
             var myObj = JSON.parse(this.responseText);
 	    score = myObj[0].avg;
 	    postScore();
-            //display(newId);
         } else {
         }
     };
@@ -107,7 +107,6 @@ function getScore()
 
 function postScore()
 {
-    alert(score); 
     var values = {"score":score, "business":newId}; 
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
@@ -120,6 +119,5 @@ function postScore()
     xhttp.open("POST", "/postScore", true);
     xhttp.setRequestHeader("Content-type", "application/JSON");
     xhttp.send(JSON.stringify(values));
-    //display(newId);
     return false;
 }
