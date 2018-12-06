@@ -34,7 +34,9 @@ app.post('/postReviews', function(request, response) {
 	postReview(request, response);
     });
 
-
+app.post('/postScore', function(request, response) {
+        postScore(request, response);
+    });
 
                                                                                                                                                                                     
 app.listen(app.get('port'), function() {                                                                                                                                            
@@ -151,5 +153,32 @@ function postReviewFromDb(body, callback) {
 	    }
 	    console.log("Found result: " + JSON.stringify(result.rows));
 	    callback(null, result.rows);
+	});
+}
+
+
+function postScore(request, response) {
+    postScoreFromDb(request.body, function(error, result) {
+            if (error || result == null) {
+                response.status(500).json({success: false, data: error});
+            } else {
+                var reviews = result[0];
+                response.status(200).json(result[0]);
+            }
+        });
+}
+
+function postScoreFromDb(body, callback) {
+    var sql = "INSERT INTO business(score) VALUES($1) returning id";
+    var params = [body.score];
+
+    pool.query(sql, params, function(err, result) {
+            if (err) {
+                console.log("Error in query: ")
+                    console.log(err);
+                callback(err, null);
+            }
+            console.log("Found result: " + JSON.stringify(result.rows));
+            callback(null, result.rows);
 	});
 }

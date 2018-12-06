@@ -1,5 +1,5 @@
 var newId = 0;
-//var score = 0;
+var score = 0;
 
 function display() 
 {
@@ -95,14 +95,29 @@ function getScore()
     xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             var myObj = JSON.parse(this.responseText);
-	    alert(myObj[0].avg);
-	    //	    for (x in myObj) {
-	    //myObj[x].rating + "/5 Stars - " + myObj[x].reviewer + ": " + myObj[x].description + "</td></tr>";
-	    //}
-            display(newId);
+	    score = myObj[0].avg;
+	    postScore();
+            //display(newId);
         } else {
         }
     };
     xhttp.open("GET", "/getScore", true);
     xhttp.send();
-    }
+}
+
+function postScore()
+{
+    alert(score); 
+    var values = {"score":score}; 
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            display(newId);
+        } else {
+        }
+    };
+    xhttp.open("POST", "/postScore", true);
+    xhttp.setRequestHeader("Content-type", "application/JSON");
+    xhttp.send(JSON.stringify(values));
+    return false;
+}

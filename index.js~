@@ -68,7 +68,7 @@ function getBusinessFromDb(id, callback) {
 }
 
 
-/*
+
 function getScore(request, response) {                                                                                                                            
     var id = request.query.id;
     getScoreFromDb(id, function(error, result) {                                                                                                                        
@@ -82,7 +82,7 @@ function getScore(request, response) {
 
 function getScoreFromDb(id, callback) {
     console.log("Getting business from DB with id: " + id);
-    var sql = "AVG rating FROM reviews";
+    var sql = "SELECT AVG(rating) FROM reviews";
     var params = [];
 
     pool.query(sql, params, function(err, result) {
@@ -95,7 +95,7 @@ function getScoreFromDb(id, callback) {
             callback(null, result.rows);
         });
 }
-*/
+
 
 
 function getReviews(request, response) {                                                                                                                 
