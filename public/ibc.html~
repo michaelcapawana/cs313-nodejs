@@ -33,6 +33,7 @@
   <br>
   <textarea rows="10" cols="70" name="details"></textarea>
   <br>
+  <br>
   <input type="text" name="name">
   <br>
   <input type="submit" value="Leave Review" name="leaveReview" style="color: black; font-size: 2em; margin-top:25px;">
