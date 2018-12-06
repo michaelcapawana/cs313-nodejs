@@ -49,7 +49,7 @@ function getBusiness(request, response) {                                       
                                                                                                                                                                                     
 function getBusinessFromDb(id, callback) {                                                                
     console.log("Getting business from DB with id: " + id);
-    var sql = "SELECT id, name, score FROM business ORDER BY name ASC";                   
+    var sql = "SELECT id, name, score FROM business ORDER BY name DESC";                   
     var params = [];                                                                                                                                                              
                                                                                                                                                                                     
     pool.query(sql, params, function(err, result) {                                                                                                                                 

@@ -49,7 +49,7 @@ function getBusiness(request, response) {                                       
                                                                                                                                                                                     
 function getBusinessFromDb(id, callback) {                                                                
     console.log("Getting business from DB with id: " + id);
-    var sql = "SELECT id, name, score FROM business";                   
+    var sql = "SELECT id, name, score FROM business ORDER BY name ASC";                   
     var params = [];                                                                                                                                                              
                                                                                                                                                                                     
     pool.query(sql, params, function(err, result) {                                                                                                                                 
@@ -81,7 +81,7 @@ function getReviews(request, response) {
 
 function getReviewsFromDb(id, callback) {
     console.log("Getting reviews from DB with id: " + id);
-    var sql = "SELECT * FROM reviews WHERE business_id=$1";
+    var sql = "SELECT * FROM reviews WHERE business_id=$1 ORDER BY business_id DESC";
     var params = [id];
 
     pool.query(sql, params, function(err, result) {
