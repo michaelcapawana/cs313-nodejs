@@ -85,5 +85,5 @@ function postReviews()
     };
     xhttp.open("POST", "/postReviews", true);
     xhttp.send();*/
-
+    return false;
 }

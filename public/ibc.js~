@@ -64,10 +64,16 @@ function postReviews()
 {
     var description = document.getElementById("description").value;
     var reviewer = document.getElementById("reviewer").value;
-    var rating = document.getElementById("rating").value;
+    var rating = document.getElementsByName("rating");
+    for (var i=0, length = rating.length; i < length; i++){
+	if (rating[i].checked) {
+	    var score = rating[i].value;
+	}
+    }
+
     alert(description);
     alert(reviewer);
-    alert(rating);
+    alert(score);
     alert(newId);
     /*    var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
