@@ -60,12 +60,16 @@ function setId(id)
     display();
 }
 
-function postReview() 
+function postReviews() 
 {
     var description = document.getElementById("description").value;
     var reviewer = document.getElementById("reviewer").value;
     var rating = document.getElementById("rating").value;
-    var xhttp = new XMLHttpRequest();
+    alert(description);
+    alert(reviewer);
+    alert(rating);
+    alert(newId);
+    /*    var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
 	if (this.readyState == 4 && this.status == 200) {
 	    myObj = JSON.parse(this.responseText);
@@ -74,6 +78,6 @@ function postReview()
 	}
     };
     xhttp.open("POST", "/postReviews", true);
-    xhttp.send();
+    xhttp.send();*/
 
 }

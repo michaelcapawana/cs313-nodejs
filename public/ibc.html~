@@ -24,17 +24,17 @@
 
 <form id="leaveReview"  method="post" accept-charset='UTF-8'>
   <br>
-  <input type="radio" name="rating" value=1>1 Star
-  <input type="radio" name="rating" value=2>2 Star
-  <input type="radio" name="rating" value=3>3 Star
-  <input type="radio" name="rating" value=4>4 Star
-  <input type="radio" name="rating" value=5>5 Star
+  <input type="radio" name="rating" id="rating" value=1>1 Star
+  <input type="radio" name="rating" id="rating" value=2>2 Star
+  <input type="radio" name="rating" id="rating" value=3>3 Star
+  <input type="radio" name="rating" id="rating" value=4>4 Star
+  <input type="radio" name="rating" id="rating" value=5>5 Star
   <br>
   <br>
-  <textarea rows="5" cols="50" name="details" placeholder="Your Review"></textarea>
+  <textarea rows="5" cols="50" name="details" id="description" placeholder="Your Review"></textarea>
   <br>
   <br>
-  <input type="text" size="30" name="name" placeholder="Your Name">
+  <input type="text" size="30" name="name" id="reviewer" placeholder="Your Name">
   <br>
   <input type="submit" onclick="postReviews()" value="Leave Review" name="leaveReview" style="color: black; font-size: 2em; margin-top:25px;">
 </form>
