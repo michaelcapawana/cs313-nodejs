@@ -85,11 +85,11 @@ function postReviews()
     xhttp.setRequestHeader("Content-type", "application/JSON");
     xhttp.send(JSON.stringify(values));
     document.getElementById("leaveReview").reset();
-    //getScore();
+    getScore();
     return false;
 }
 
-/*function getScore()
+function getScore()
 {
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
@@ -105,4 +105,4 @@ function postReviews()
     };
     xhttp.open("GET", "/getScore", true);
     xhttp.send();
-    }*/
+    }
