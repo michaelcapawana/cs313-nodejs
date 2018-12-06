@@ -1,8 +1,10 @@
 var newId = 0;
+var x = document.getElementById("leaveReview");
 
 function display() 
 {
     if (newId == 0){
+	x.style.display = "none";
     var obj, dbParam, xmlhttp, myObj, x, txt = "";
     obj = { table: "customers", limit: 20 };
     dbParam = JSON.stringify(obj);
@@ -31,6 +33,7 @@ function display()
     xhttp.open("GET", "/getBusiness", true);
     xhttp.send();
     } else {
+	x.style.display = "block";
 	txt = "";
 	var obj, dbParam, xmlhttp, myObj, x, txt = "";
 	obj = { table: "customers", limit: 20 };
