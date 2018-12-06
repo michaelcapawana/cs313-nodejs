@@ -81,7 +81,7 @@ function getReviews(request, response) {
 
 function getReviewsFromDb(id, callback) {
     console.log("Getting reviews from DB with id: " + id);
-    var sql = "SELECT * FROM reviews WHERE business_id=$1 ORDER BY business_id ASC";
+    var sql = "SELECT * FROM reviews WHERE business_id=$1 ORDER BY id DESC";
     var params = [id];
 
     pool.query(sql, params, function(err, result) {
