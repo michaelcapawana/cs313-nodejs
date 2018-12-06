@@ -71,7 +71,7 @@ function postReviews()
 	}
     }
     //    var values = "description=" + description + "&reviewer=" + reviewer + "&rating=" + score + "&business=" + newId;
-    var values = {description:description, reviewer:reviewer, rating:score, business: newId};
+    var values = {"description":description, "reviewer":reviewer, "rating":score, "business":newId};
        var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
 	if (this.readyState == 4 && this.status == 200) {
