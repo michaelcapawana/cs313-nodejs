@@ -81,6 +81,6 @@ function postReviews()
 	}
     };
     xhttp.open("POST", "/postReviews", true);
-    xhttp.send(values);
+    xhttp.send(values.stringify());
     return false;
 }
