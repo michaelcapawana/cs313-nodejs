@@ -99,7 +99,7 @@ function getReviewsFromDb(id, callback) {
 
 function postReview(request, response) {
     var id = request.query.id;
-    console.log(request.body);
+    console.log(request);
     postReviewFromDb(id, function(error, result) {
 	    if (error || result == null) {
 		response.status(500).json({success: false, data: error});

@@ -1,5 +1,6 @@
 var express = require('express');                                                                                                                                                  
 var app = express();                                                                                                                                                                                                                                                                                                              
+var bodyParser = require('body-parser');
 const { Pool } = require("pg");                                                                                                       
 const connectionString = process.env.DATABASE_URL;                                                                                                                                  
 const pool = new Pool({connectionString: connectionString});                                                                                                                        
@@ -8,6 +9,9 @@ app.set('port', (process.env.PORT || 5000));
 
 app.set("views", __dirname + "/views");
 app.set("view engine", "ejs");
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true}));
 
 app.use(express.static(__dirname + '/public'));                                                                                                                                     
                                                                                                                                                                                     
@@ -95,7 +99,7 @@ function getReviewsFromDb(id, callback) {
 
 function postReview(request, response) {
     var id = request.query.id;
-    console.log(request.query);
+    console.log(request.body);
     postReviewFromDb(id, function(error, result) {
 	    if (error || result == null) {
 		response.status(500).json({success: false, data: error});

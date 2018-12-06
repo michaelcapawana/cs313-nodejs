@@ -71,12 +71,10 @@ function postReviews()
 	}
     }
     var values = "description=" + description + "&reviewer=" + reviewer + "&rating=" + score + "&business=" + newId;
-    alert(description);
-    alert(reviewer);
-    alert(score);
-    alert(newId);
+  
        var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
+	alert(this.readyState);
 	if (this.readyState == 4 && this.status == 200) {
 	    myObj = JSON.parse(this.responseText);
 	    display(newId);

@@ -74,7 +74,6 @@ function postReviews()
   
        var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
-	alert(this.readyState);
 	if (this.readyState == 4 && this.status == 200) {
 	    myObj = JSON.parse(this.responseText);
 	    display(newId);
