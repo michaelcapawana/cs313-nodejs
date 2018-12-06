@@ -35,6 +35,7 @@ function display()
     xhttp.open("GET", "/getBusiness", true);
     xhttp.send();
     } else {
+	var x = document.getElementById("leaveReview");
 	x.style.display = "block";
 	txt = "";
 	var obj, dbParam, xmlhttp, myObj, x, txt = "";

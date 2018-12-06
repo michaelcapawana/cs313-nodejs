@@ -1,11 +1,12 @@
 var newId = 0;
-var x = document.getElementById("leaveReview");
-x.style.display = "none";
+//var x = document.getElementById("leaveReview");
+//x.style.display = "none";
 
 function display() 
 {
     if (newId == 0){
-
+	var x = document.getElementById("leaveReview");
+	x.style.display = "none";
     var obj, dbParam, xmlhttp, myObj, x, txt = "";
     obj = { table: "customers", limit: 20 };
     dbParam = JSON.stringify(obj);
