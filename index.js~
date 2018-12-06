@@ -91,7 +91,7 @@ function getScoreFromDb(id, callback) {
                     console.log(err);
                 callback(err, null);
             }
-            console.log("Found result: " + JSON.stringify(result.rows));
+	    //            console.log("Found result: " + JSON.stringify(result.rows));
             callback(null, result.rows);
         });
 }

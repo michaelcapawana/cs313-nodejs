@@ -93,9 +93,8 @@ function getScore()
 {
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
-	alert(this.readyState);
         if (this.readyState == 4 && this.status == 200) {
-            myObj = JSON.parse(this.responseText);
+            var myObj = JSON.parse(this.responseText);
 	    alert(myObj);
 	    //	    for (x in myObj) {
 	    //myObj[x].rating + "/5 Stars - " + myObj[x].reviewer + ": " + myObj[x].description + "</td></tr>";
