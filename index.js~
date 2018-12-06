@@ -98,9 +98,7 @@ function getReviewsFromDb(id, callback) {
 
 
 function postReview(request, response) {
-    var id = request.query.id;
-    console.log(request);
-    postReviewFromDb(id, function(error, result) {
+    postReviewFromDb(request.body, function(error, result) {
 	    if (error || result == null) {
 		response.status(500).json({success: false, data: error});
 	    } else {
@@ -110,10 +108,10 @@ function postReview(request, response) {
 	});
 }
 
-function postReviewFromDb(id, callback) {
+function postReviewFromDb(body, callback) {
     console.log("Posting review to DB with id: " + id);
     var sql = "INSERT INTO reviews(rating, description, reviewer, business_id) VALUES($1, $2, $3, $4) returning id";
-    var params = [id];
+    var params = [body.rating, body.description, body.reviewer, body.business];
 
     pool.query(sql, params, function(err, result) {
 	    if (err) {
