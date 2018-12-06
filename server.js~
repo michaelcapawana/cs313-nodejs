@@ -9,17 +9,70 @@ const pool = new Pool({connectionString: connectionString});
 app.set('port', (process.env.PORT || 5000));            
 app.use(express.static(__dirname + '/public')); 
 
-app.listen(app.get('port'), function() {                                                                                                                                             
-        console.log('Node app is running on port', app.get('port'));                                                                                                                 
-    });     
+app.use(session({
+	    secret: 'my-super-secret-secret!',
+		resave: false,
+		saveUninitialized: true
+		}))
 
 
+app.use(express.json() );
+app.use(express.urlencoded({ extended: true })); 
+
+app.use(logRequest);
+
+app.post('/login', handleLogin);
+app.post('/logout', handleLogout);
 
 
+app.get('/getServerTime', verifyLogin, getServerTime);
+
+app.listen(app.get('port'), function() {                                                                                                                                        
+
+        console.log('Node app is running on port', app.get('port'));                                                                                               
+    });
 
 
+function handleLogin(request, response) {
+    var result = {success: false};
+    if (request.body.username == "admin" && request.body.password == "password") {
+	request.session.user = request.body.username;
+	result = {success: true};
+    }
+    response.json(result);
+}
 
+function handleLogout(request, response) {
+    var result = {success: false};
 
+    if (request.session.user) {
+	request.session.destroy();
+	result = {success: true};
+    }
+
+    response.json(result);
+}
+
+function getServerTime(request, response) {
+    var time = new Date();
+    
+    var result = {success: true, time: time};
+    response.json(result); 
+}
+
+function verifyLogin(request, response, next) {
+    if (request.session.user) {
+	next();
+    } else {
+	var result = {succes:false, message: "Access Denied"};
+	response.status(401).json(result);
+    }
+}
+
+function logRequest(request, response, next) {
+    console.log("Received a request for: " + request.url);
+     next();
+}
 
 
 //Teach 10 Activity
