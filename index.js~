@@ -68,7 +68,7 @@ function getBusinessFromDb(id, callback) {
 }
 
 
-
+/*
 function getScore(request, response) {                                                                                                                            
     var id = request.query.id;
     getScoreFromDb(id, function(error, result) {                                                                                                                        
@@ -91,11 +91,11 @@ function getScoreFromDb(id, callback) {
                     console.log(err);
                 callback(err, null);
             }
-	    //            console.log("Found result: " + JSON.stringify(result.rows));
+                console.log("Found result: " + JSON.stringify(result.rows));
             callback(null, result.rows);
         });
 }
-
+*/
 
 
 function getReviews(request, response) {                                                                                                                 
