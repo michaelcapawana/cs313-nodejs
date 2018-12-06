@@ -119,5 +119,6 @@ function postScore()
     xhttp.open("POST", "/postScore", true);
     xhttp.setRequestHeader("Content-type", "application/JSON");
     xhttp.send(JSON.stringify(values));
+    display(newId);
     return false;
 }
