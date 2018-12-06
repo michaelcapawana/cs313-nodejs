@@ -101,7 +101,7 @@ function getScore()
         } else {
         }
     };
-    xhttp.open("GET", "/getScore", true);
+    xhttp.open("GET", "/getScore?id=" + newId, true);
     xhttp.send();
 }
 
