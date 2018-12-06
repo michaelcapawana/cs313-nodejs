@@ -108,7 +108,7 @@ function getScore()
 function postScore()
 {
     alert(score); 
-    var values = {"score":score}; 
+    var values = {"score":score, "business":newId}; 
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {

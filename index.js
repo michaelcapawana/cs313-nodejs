@@ -169,8 +169,8 @@ function postScore(request, response) {
 }
 
 function postScoreFromDb(body, callback) {
-    var sql = "INSERT INTO business(score) VALUES($1) returning id";
-    var params = [body.score];
+    var sql = "UPDATE business SET score = $1 WHERE id = $2 returning id";
+    var params = [body.score, body.business];
 
     pool.query(sql, params, function(err, result) {
             if (err) {
