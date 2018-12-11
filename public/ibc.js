@@ -4,6 +4,8 @@ var score = 0;
 function display() 
 {
     if (newId == 0){
+	txt = "Click Any Business on the Left to View or Leave Reviews";
+	document.getElementById("displayReviews").innerHTML = txt;
 	var x = document.getElementById("leaveReview");
 	x.style.display = "none";
     var obj, dbParam, xmlhttp, myObj, x, txt = "";
